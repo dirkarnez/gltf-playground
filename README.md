@@ -8,6 +8,6 @@ gltf-playground
 - https://gltf-transform.dev/extensions
 - https://github.com/Hubs-Foundation/hubs-blender-exporter/blob/046212a81239069a6f2289e9a3811db938b8191c/addons/io_hubs_addon/components/definitions/audio_settings.py
 - https://github.com/KhronosGroup/glTF/tree/main/specification/2.0/schema
-- https://github.com/takahirox/three-gltf-extensions
 - https://threejs.org/docs/#GLTFLoader
   - `userData`
+- [takahirox/three-gltf-extensions: Unofficial Three.js glTF loader/exporter plugins](https://github.com/takahirox/three-gltf-extensions)
