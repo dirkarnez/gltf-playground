@@ -1,0 +1,99 @@
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// Define the name of your custom extension
+const MY_CUSTOM_EXTENSION_NAME = 'MY_custom_data';
+
+class GLTFMyCustomExtension {
+    constructor(loader) {
+        this.loader = loader;
+    }
+
+    // Example handler for a mesh extension
+    // This method is called by the loader if the extension is present on a mesh
+    extendMesh(mesh, gltfMesh) {
+        if (gltfMesh.extensions && gltfMesh.extensions[MY_CUSTOM_EXTENSION_NAME]) {
+            const customData = gltfMesh.extensions[MY_CUSTOM_EXTENSION_NAME];
+            // Process the custom data and apply it to the three.js mesh
+            mesh.userData.myCustomValue = customData.someValue;
+        }
+    }
+
+    // Other potential handlers for materials, nodes, etc.
+    // extendMaterial(material, gltfMaterial) { ... }
+}
+
+const loader = new GLTFLoader();
+
+// Register the custom extension handler
+loader.register(function (parser) {
+    return new GLTFMyCustomExtension(parser);
+});
+
+// Load the model
+loader.load('model_with_custom_ext.gltf', (gltf) => {
+    console.log('Model loaded with custom extension support');
+    // Access processed data in userData
+    gltf.scene.traverse((object) => {
+        if (object.userData.myCustomValue) {
+            console.log('Found custom value:', object.userData.myCustomValue);
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// Define the name of your custom extension
+const MY_CUSTOM_EXTENSION_NAME = 'MY_custom_data';
+
+class GLTFMyCustomExtension {
+    constructor(loader) {
+        this.loader = loader;
+    }
+
+    // Example handler for a mesh extension
+    // This method is called by the loader if the extension is present on a mesh
+    extendMesh(mesh, gltfMesh) {
+        if (gltfMesh.extensions && gltfMesh.extensions[MY_CUSTOM_EXTENSION_NAME]) {
+            const customData = gltfMesh.extensions[MY_CUSTOM_EXTENSION_NAME];
+            // Process the custom data and apply it to the three.js mesh
+            mesh.userData.myCustomValue = customData.someValue;
+        }
+    }
+
+    // Other potential handlers for materials, nodes, etc.
+    // extendMaterial(material, gltfMaterial) { ... }
+}
+
+const loader = new GLTFLoader();
+
+// Register the custom extension handler
+loader.register(function (parser) {
+    return new GLTFMyCustomExtension(parser);
+});
+
+// Load the model
+loader.load('model_with_custom_ext.gltf', (gltf) => {
+    console.log('Model loaded with custom extension support');
+    // Access processed data in userData
+    gltf.scene.traverse((object) => {
+        if (object.userData.myCustomValue) {
+            console.log('Found custom value:', object.userData.myCustomValue);
+        }
+    });
+});
